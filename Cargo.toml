@@ -1,0 +1,20 @@
+[package]
+name = "resonate-cm-demo"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# Empty workspace table — this is its own workspace root so it doesn't get
+# accidentally pulled into a parent workspace (matches the pattern used by
+# the standalone WASM guest fixtures under resonate/tests/fixtures/cm/*).
+[workspace]
+
+[dependencies]
+resonate = { path = "../resonate", features = ["cm", "test-simulator"] }
+tokio = { version = "1", features = ["full"] }
+clap = { version = "4", features = ["derive"] }
+anyhow = "1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tracing = "0.1"
+serde_json = "1"
+base64 = "0.22"
